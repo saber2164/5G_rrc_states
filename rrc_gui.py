@@ -172,7 +172,7 @@ class RRCSimulationGUI:
         
         self.start_button = tk.Button(
             control_frame,
-            text="▶ START SIMULATION",
+            text="START SIMULATION",
             command=self._on_start_stop,
             bg='#00AA00',
             fg='white',
@@ -201,7 +201,7 @@ class RRCSimulationGUI:
         # Data burst button
         self.data_button = tk.Button(
             control_frame,
-            text="📡 Send Data Burst",
+            text="Send Data Burst",
             command=self._on_data_button,
             bg='#4CAF50',
             fg='white',
@@ -217,7 +217,7 @@ class RRCSimulationGUI:
         # Paging button
         self.paging_button = tk.Button(
             control_frame,
-            text="📞 Simulate Paging",
+            text="Simulate Paging",
             command=self._on_paging_button,
             bg='#2196F3',
             fg='white',
@@ -475,7 +475,7 @@ class RRCSimulationGUI:
             
             # Update button to STOP state
             self.start_button.config(
-                text="⏸ STOP SIMULATION",
+                text="STOP SIMULATION",
                 bg='#DD0000'
             )
             
@@ -493,7 +493,7 @@ class RRCSimulationGUI:
             
             # Update button to START state
             self.start_button.config(
-                text="▶ START SIMULATION",
+                text="START SIMULATION",
                 bg='#00AA00'
             )
             

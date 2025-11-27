@@ -6,13 +6,13 @@ A real-time discrete-event simulation of the 5G New Radio (NR) Radio Resource Co
 
 ## Key Features
 
-- ✅ **3GPP-Compliant State Machine**: RRC_IDLE, RRC_CONNECTED, and RRC_INACTIVE states
-- ✅ **Adaptive Inactivity Timers**: Profile-based (IoT vs Streaming) with different thresholds
-- ✅ **Real-Time Visualization**: Live charts, state lamps, and metrics display
-- ✅ **User-Controlled Workflow**: Start/Stop button with 3-step process
-- ✅ **Energy Tracking**: Zero power in IDLE, accurate consumption in other states
-- ✅ **Comprehensive Testing**: 10 unit tests + 250-test comparative study
-- ✅ **Performance Analysis**: Detailed comparison of static vs adaptive timers
+- [+] **3GPP-Compliant State Machine**: RRC_IDLE, RRC_CONNECTED, and RRC_INACTIVE states
+- [+] **Adaptive Inactivity Timers**: Profile-based (IoT vs Streaming) with different thresholds
+- [+] **Real-Time Visualization**: Live charts, state lamps, and metrics display
+- [+] **User-Controlled Workflow**: Start/Stop button with 3-step process
+- [+] **Energy Tracking**: Zero power in IDLE, accurate consumption in other states
+- [+] **Comprehensive Testing**: 10 unit tests + 250-test comparative study
+- [+] **Performance Analysis**: Detailed comparison of static vs adaptive timers
 
 ## Features
 
@@ -86,8 +86,8 @@ See [QUICKSTART.md](QUICKSTART.md) for detailed step-by-step guide.
 - **IoT Burst (200ms inactivity)**: For sensor data with short, frequent bursts
 
 **Step 2: Start Simulation**
-- **▶ START SIMULATION**: Begins the simulation engine (button turns red and shows STOP)
-- **⏸ STOP SIMULATION**: Pauses the simulation (allows changing traffic profile)
+- ** START SIMULATION**: Begins the simulation engine (button turns red and shows STOP)
+- ** STOP SIMULATION**: Pauses the simulation (allows changing traffic profile)
 
 **Step 3: Trigger Events** (only available when simulation is running)
 
@@ -234,7 +234,7 @@ python3 comparative_study.py
 
 | Configuration | Avg Energy | Best For |
 |---------------|------------|----------|
-| Adaptive_IoT | 1,139,971 | **Energy efficiency** ⭐ |
+| Adaptive_IoT | 1,139,971 | **Energy efficiency** ** |
 | Static_1s | 1,789,175 | Moderate power/transitions |
 | Static_5s | 3,044,195 | Balanced approach |
 | Static_10s | 3,575,310 | Connection stability |

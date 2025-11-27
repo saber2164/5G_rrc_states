@@ -21,7 +21,7 @@ def test_idle_to_connected_on_data():
     engine.tick()
     
     assert engine.state == RRCState.CONNECTED, "Should transition to CONNECTED"
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_idle_to_connected_on_paging():
@@ -33,7 +33,7 @@ def test_idle_to_connected_on_paging():
     engine.tick()
     
     assert engine.state == RRCState.CONNECTED, "Should transition to CONNECTED on paging"
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_connected_to_inactive_on_timer():
@@ -52,7 +52,7 @@ def test_connected_to_inactive_on_timer():
         engine.tick()
         
     assert engine.state == RRCState.INACTIVE, f"Should be INACTIVE after timer, got {engine.state.name}"
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_inactive_to_connected_fast_resume():
@@ -72,7 +72,7 @@ def test_inactive_to_connected_fast_resume():
     engine.tick()
     
     assert engine.state == RRCState.CONNECTED, "Should fast resume to CONNECTED"
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_inactive_to_idle_on_long_timer():
@@ -92,7 +92,7 @@ def test_inactive_to_idle_on_long_timer():
         engine.tick()
         
     assert engine.state == RRCState.IDLE, "Should return to IDLE after 30s"
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_adaptive_timer_iot_vs_streaming():
@@ -108,7 +108,7 @@ def test_adaptive_timer_iot_vs_streaming():
     engine.set_traffic_profile("Streaming")
     assert engine.inactivity_threshold == 10000, "Streaming threshold should be 10s"
     
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_energy_calculation():
@@ -130,7 +130,7 @@ def test_energy_calculation():
     connected_energy = engine.total_energy
     assert connected_energy == 1000, f"10 ticks in CONNECTED should consume 1000 units, got {connected_energy}"
     
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_state_persistence_during_data():
@@ -147,7 +147,7 @@ def test_state_persistence_during_data():
         engine.tick()
         assert engine.state == RRCState.CONNECTED, "Should stay CONNECTED during data burst"
         
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_transition_count():
@@ -174,7 +174,7 @@ def test_transition_count():
     engine.tick()
     assert engine.transition_count == 3
     
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def test_get_state_snapshot():
@@ -190,7 +190,7 @@ def test_get_state_snapshot():
     assert state['state'] == RRCState.IDLE
     assert state['state_name'] == 'IDLE'
     
-    print("  ✓ PASSED")
+    print("  [OK] PASSED")
 
 
 def run_all_tests():

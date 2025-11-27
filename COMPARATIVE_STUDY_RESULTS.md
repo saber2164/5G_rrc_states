@@ -29,16 +29,16 @@ Comprehensive analysis of 5G NR RRC inactivity timer strategies across 250 test 
 | **Static_1s** | 1,789,175 | 11.0 | 5.2% | 45.6% | 49.2% | 47.7% |
 | **Static_5s** | 3,044,195 | 5.1 | 1.7% | 78.7% | 19.6% | 80.1% |
 | **Static_10s** | 3,575,310 | 1.4 | 1.7% | 94.0% | 4.3% | 95.6% |
-| **Adaptive_IoT** | **1,139,971** ✓ | 24.9 | **20.3%** ✓ | 27.2% | 52.5% | 33.4% |
+| **Adaptive_IoT** | **1,139,971** [OK] | 24.9 | **20.3%** [OK] | 27.2% | 52.5% | 33.4% |
 | **Adaptive_Streaming** | 3,575,310 | 1.4 | 1.7% | 94.0% | 4.3% | 95.6% |
 
-**✓ Best for energy savings**
+**[OK] Best for energy savings**
 
 ### Category-Specific Results
 
 #### IoT Traffic (Periodic Sensors)
 ```
-Adaptive_IoT:        835,950 units  ⭐ -69% vs Static_5s
+Adaptive_IoT:        835,950 units  ** -69% vs Static_5s
 Static_1s:         1,844,400 units
 Static_5s:         2,734,050 units
 Static_10s:        3,000,000 units
@@ -48,7 +48,7 @@ Adaptive_Streaming: 3,000,000 units
 
 #### Streaming Traffic (Video/Audio)
 ```
-Adaptive_IoT:      1,664,500 units  ⭐ -36% vs Streaming profile
+Adaptive_IoT:      1,664,500 units  ** -36% vs Streaming profile
 Static_1s:         1,785,050 units
 Static_5s:         2,145,050 units
 Adaptive_Streaming: 2,595,050 units
@@ -58,7 +58,7 @@ Static_10s:        2,595,050 units
 
 #### Web Browsing (Bursty)
 ```
-Adaptive_IoT:      1,560,000 units  ⭐ -76% vs Static_5s
+Adaptive_IoT:      1,560,000 units  ** -76% vs Static_5s
 Static_1s:         2,260,000 units
 Static_5s:         5,140,000 units
 Static_10s:        6,400,000 units
@@ -68,7 +68,7 @@ Adaptive_Streaming: 6,400,000 units
 
 #### Mixed Traffic
 ```
-Adaptive_IoT:      1,047,617 units  ⭐ -70% vs Static_5s
+Adaptive_IoT:      1,047,617 units  ** -70% vs Static_5s
 Static_1s:         1,930,163 units
 Static_5s:         3,458,799 units
 Static_10s:        3,732,975 units
@@ -77,7 +77,7 @@ Adaptive_Streaming: 3,732,975 units
 
 #### Edge Cases
 ```
-Adaptive_IoT:        591,786 units  ⭐ -66% vs Static_5s
+Adaptive_IoT:        591,786 units  ** -66% vs Static_5s
 Static_1s:         1,126,260 units
 Static_5s:         1,743,074 units
 Static_10s:        2,148,524 units

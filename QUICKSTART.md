@@ -19,33 +19,33 @@ python3 main.py
   - UE stays CONNECTED longer before sleeping
   - Lower transition overhead, better for sustained throughput
 
-- **📡 IoT Burst (200ms inactivity)**
+- ** IoT Burst (200ms inactivity)**
   - Best for: Sensors, M2M devices, periodic updates
   - UE quickly enters INACTIVE state to save energy
   - Fast resume capability for bursty traffic
 
 #### 2. Start the Simulation
-Click the large **green "▶ START SIMULATION"** button.
+Click the large **green " START SIMULATION"** button.
 
 The button will:
-- Turn red and show "⏸ STOP SIMULATION"
+- Turn red and show " STOP SIMULATION"
 - Enable the event trigger buttons
 - Begin the simulation engine (time starts incrementing)
 
 #### 3. Trigger Events
 Now you can interact with the UE:
 
-**📡 Send Data Burst** (100ms):
+** Send Data Burst** (100ms):
 - If in IDLE: Establishes full RRC connection
 - If in INACTIVE: Fast resume to CONNECTED (lower latency)
 - Keeps UE in CONNECTED for burst duration + inactivity timer
 
-**📞 Simulate Paging**:
+** Simulate Paging**:
 - Pages UE from IDLE to CONNECTED
 - Simulates network-initiated wakeup
 
 #### 4. Stop/Pause
-Click **"⏸ STOP SIMULATION"** to:
+Click **" STOP SIMULATION"** to:
 - Pause the simulation engine
 - Change traffic profile
 - Reset if needed
@@ -53,9 +53,9 @@ Click **"⏸ STOP SIMULATION"** to:
 ## Understanding the Visualization
 
 ### State Lamps (Left Side)
-- **🔴 IDLE**: Low power, no connection (0 units/ms - fully asleep)
-- **🟢 CONNECTED**: Active data transfer (100 units/ms)
-- **🟡 INACTIVE**: Context retained, fast resume (10 units/ms)
+- **RED IDLE**: Low power, no connection (0 units/ms - fully asleep)
+- **GREEN CONNECTED**: Active data transfer (100 units/ms)
+- **YELLOW INACTIVE**: Context retained, fast resume (10 units/ms)
 
 ### Real-Time Charts (Right Side)
 - **Top chart**: RRC State over time (0=IDLE, 1=CONNECTED, 2=INACTIVE)

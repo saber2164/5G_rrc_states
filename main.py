@@ -113,11 +113,11 @@ class RRCApplication:
         command = cmd.get('command')
         
         if command == 'start':
-            print("▶ Simulation STARTED")
+            print("Simulation STARTED")
             self.paused = False
             
         elif command == 'stop':
-            print("⏸ Simulation PAUSED")
+            print("Simulation PAUSED")
             self.paused = True
             
         elif command == 'data_request':

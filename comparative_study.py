@@ -276,7 +276,7 @@ class TimerComparativeStudy:
                 self.results.append(result)
         
         elapsed = time.time() - start_time
-        print(f"\n\n✓ Completed {total_tests} tests in {elapsed:.2f}s")
+        print(f"\n\n[OK] Completed {total_tests} tests in {elapsed:.2f}s")
         print()
         
     def analyze_results(self):
@@ -357,7 +357,7 @@ class TimerComparativeStudy:
         plot1_path = os.path.join(output_dir, '1_energy_by_config.png')
         plt.savefig(plot1_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot1_path}")
+        print(f"  [OK] {plot1_path}")
         
         # ===== Plot 2: State Distribution (Stacked Bar) =====
         fig2, ax2 = plt.subplots(figsize=(10, 6))
@@ -375,7 +375,7 @@ class TimerComparativeStudy:
         plot2_path = os.path.join(output_dir, '2_state_distribution.png')
         plt.savefig(plot2_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot2_path}")
+        print(f"  [OK] {plot2_path}")
         
         # ===== Plot 3: Transition Count =====
         fig3, ax3 = plt.subplots(figsize=(10, 6))
@@ -398,7 +398,7 @@ class TimerComparativeStudy:
         plot3_path = os.path.join(output_dir, '3_transition_count.png')
         plt.savefig(plot3_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot3_path}")
+        print(f"  [OK] {plot3_path}")
         
         # ===== Plot 4: Energy by Category =====
         fig4, ax4 = plt.subplots(figsize=(12, 6))
@@ -417,7 +417,7 @@ class TimerComparativeStudy:
         plot4_path = os.path.join(output_dir, '4_energy_by_category.png')
         plt.savefig(plot4_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot4_path}")
+        print(f"  [OK] {plot4_path}")
         
         # ===== Plot 5: Efficiency Score =====
         fig5, ax5 = plt.subplots(figsize=(10, 6))
@@ -442,7 +442,7 @@ class TimerComparativeStudy:
         plot5_path = os.path.join(output_dir, '5_efficiency_score.png')
         plt.savefig(plot5_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot5_path}")
+        print(f"  [OK] {plot5_path}")
         
         # ===== Plot 6: Energy Distribution (Box Plot) =====
         fig6, ax6 = plt.subplots(figsize=(12, 6))
@@ -465,7 +465,7 @@ class TimerComparativeStudy:
         plot6_path = os.path.join(output_dir, '6_energy_distribution_boxplot.png')
         plt.savefig(plot6_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot6_path}")
+        print(f"  [OK] {plot6_path}")
         
         # ===== Plot 7: Category Performance Heatmap =====
         fig7, ax7 = plt.subplots(figsize=(12, 6))
@@ -496,9 +496,9 @@ class TimerComparativeStudy:
         plot7_path = os.path.join(output_dir, '7_heatmap_category_config.png')
         plt.savefig(plot7_path, dpi=150, bbox_inches='tight')
         plt.close()
-        print(f"  ✓ {plot7_path}")
+        print(f"  [OK] {plot7_path}")
         
-        print(f"\n✓ All 7 plots saved to '{output_dir}/' folder")
+        print(f"\n[OK] All 7 plots saved to '{output_dir}/' folder")
         return output_dir
         """
         Generate comprehensive visualization of results.
@@ -608,7 +608,7 @@ class TimerComparativeStudy:
                     fontsize=16, fontweight='bold', y=0.995)
         
         plt.savefig(output_file, dpi=150, bbox_inches='tight')
-        print(f"\n✓ Visualization saved to: {output_file}")
+        print(f"\n[OK] Visualization saved to: {output_file}")
         
         return fig
 
@@ -639,7 +639,7 @@ def main():
     df = pd.DataFrame(study.results)
     csv_file = 'comparative_study_data.csv'
     df.to_csv(csv_file, index=False)
-    print(f"\n✓ Raw data exported to: {csv_file}")
+    print(f"\n[OK] Raw data exported to: {csv_file}")
     
     print("\n" + "="*70)
     print("STUDY COMPLETE")
