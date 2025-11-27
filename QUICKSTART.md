@@ -3,7 +3,6 @@
 ## Launch the Application
 
 ```bash
-cd /home/harshit/Documents/5g
 python3 main.py
 ```
 
