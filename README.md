@@ -286,7 +286,7 @@ Educational/Research Use
 
 ## Author
 
-Python port of MATLAB Simulink model for 5G NR RRC state transitions.
+Harshit Thakkar
 
 ## References
 
