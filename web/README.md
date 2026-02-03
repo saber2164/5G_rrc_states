@@ -9,7 +9,7 @@ An interactive visual learning platform for understanding 5G NR Radio Resource C
 - Real-time state transitions with glowing effects
 - 3GPP TS 38.331 compliant
 
-⚡ **Real-Time Simulation**
+ **Real-Time Simulation**
 - Browser-based simulation engine (TypeScript port)
 - Adjustable traffic profiles (IoT Burst vs Streaming)
 - Live energy consumption tracking
@@ -61,7 +61,7 @@ npm run build
 npm start
 ```
 
-## 🌐 Deploy to Vercel
+##  Deploy to Vercel
 
 1. Push to GitHub
 2. Import project on [Vercel](https://vercel.com)
@@ -76,7 +76,7 @@ cd web
 vercel
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 web/
