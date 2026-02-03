@@ -4,7 +4,7 @@
 
 A real-time discrete-event simulation of the 5G New Radio (NR) Radio Resource Control (RRC) state machine, compliant with 3GPP TS 38.331 specifications.
 
-## 🌐 Web Application (NEW!)
+##  Web Application (NEW!)
 
 An interactive visual learning platform is now available in the `/web` directory!
 
@@ -17,11 +17,11 @@ npm run dev
 Then open [http://localhost:3000](http://localhost:3000)
 
 **Features:**
-- 🎯 Animated state machine diagram
-- ⚡ Real-time simulation controls
-- 📊 Live energy & state charts  
-- 📚 Educational learning modules
-- 🚀 Ready for Vercel deployment
+-  Animated state machine diagram
+-  Real-time simulation controls
+-  Live energy & state charts  
+-  Educational learning modules
+-  Ready for Vercel deployment
 
 See [web/README.md](web/README.md) for deployment instructions.
 
