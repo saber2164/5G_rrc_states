@@ -12,25 +12,25 @@ interface StateIndicatorsProps {
 
 const STATE_INFO = {
   [RRCState.IDLE]: {
-    color: 'bg-red-500',
-    glow: 'shadow-red-500/50',
-    ring: 'ring-red-400',
+    color: 'bg-gray-500',
+    glow: 'shadow-gray-500/50',
+    ring: 'ring-gray-400',
     label: 'IDLE',
     power: '0 units/tick',
     description: 'Low Power Mode',
   },
   [RRCState.CONNECTED]: {
-    color: 'bg-green-500',
-    glow: 'shadow-green-500/50',
-    ring: 'ring-green-400',
+    color: 'bg-primary',
+    glow: 'shadow-primary/50',
+    ring: 'ring-primary',
     label: 'CONNECTED',
     power: '100 units/tick',
     description: 'Active Transfer',
   },
   [RRCState.INACTIVE]: {
-    color: 'bg-yellow-500',
-    glow: 'shadow-yellow-500/50',
-    ring: 'ring-yellow-400',
+    color: 'bg-accent',
+    glow: 'shadow-accent/50',
+    ring: 'ring-accent',
     label: 'INACTIVE',
     power: '10 units/tick',
     description: 'Fast Resume Ready',
@@ -39,8 +39,8 @@ const STATE_INFO = {
 
 export function StateIndicators({ currentState, simulationTime, totalEnergy, transitionCount }: StateIndicatorsProps) {
   return (
-    <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6">
-      <h3 className="text-lg font-semibold text-white mb-4">State Indicators</h3>
+    <div className="bg-surface rounded-2xl p-6 border border-secondary/10">
+      <h3 className="text-lg font-semibold text-text mb-4">State Indicators</h3>
       
       {/* State Lamps */}
       <div className="flex justify-center gap-8 mb-6">
@@ -56,7 +56,7 @@ export function StateIndicators({ currentState, simulationTime, totalEnergy, tra
                   scale: [1, 1.1, 1],
                   boxShadow: [
                     '0 0 0 0 rgba(255,255,255,0)',
-                    '0 0 20px 10px rgba(255,255,255,0.3)',
+                    '0 0 20px 10px rgba(255,255,255,0.2)',
                     '0 0 0 0 rgba(255,255,255,0)',
                   ],
                 } : {}}
@@ -71,10 +71,10 @@ export function StateIndicators({ currentState, simulationTime, totalEnergy, tra
                   />
                 )}
               </motion.div>
-              <span className={`mt-2 text-sm font-medium ${isActive ? 'text-white' : 'text-slate-500'}`}>
+              <span className={`mt-2 text-sm font-medium ${isActive ? 'text-text' : 'text-secondary'}`}>
                 {info.label}
               </span>
-              <span className={`text-xs ${isActive ? 'text-slate-300' : 'text-slate-600'}`}>
+              <span className={`text-xs ${isActive ? 'text-secondary' : 'text-secondary/50'}`}>
                 {info.power}
               </span>
             </div>
@@ -87,17 +87,17 @@ export function StateIndicators({ currentState, simulationTime, totalEnergy, tra
         <MetricCard
           label="Simulation Time"
           value={`${simulationTime.toFixed(2)}s`}
-          icon="⏱️"
+          icon="TIME"
         />
         <MetricCard
           label="Total Energy"
           value={`${(totalEnergy / 1000).toFixed(1)}k`}
-          icon="⚡"
+          icon="ENERGY"
         />
         <MetricCard
           label="Transitions"
           value={transitionCount.toString()}
-          icon="🔄"
+          icon="COUNT"
         />
       </div>
 
@@ -106,17 +106,16 @@ export function StateIndicators({ currentState, simulationTime, totalEnergy, tra
         key={currentState}
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className={`mt-4 p-4 rounded-xl ${STATE_INFO[currentState].color} bg-opacity-20 border border-opacity-30`}
-        style={{ borderColor: STATE_INFO[currentState].color.replace('bg-', '') }}
+        className="mt-4 p-4 rounded-xl bg-surface border border-secondary/20"
       >
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-slate-400">Current State</p>
-            <p className="text-xl font-bold text-white">{STATE_INFO[currentState].label}</p>
+            <p className="text-sm text-secondary">Current State</p>
+            <p className="text-xl font-bold text-text">{STATE_INFO[currentState].label}</p>
           </div>
           <div className="text-right">
-            <p className="text-sm text-slate-400">Mode</p>
-            <p className="text-sm text-white">{STATE_INFO[currentState].description}</p>
+            <p className="text-sm text-secondary">Mode</p>
+            <p className="text-sm text-text">{STATE_INFO[currentState].description}</p>
           </div>
         </div>
       </motion.div>
@@ -126,17 +125,17 @@ export function StateIndicators({ currentState, simulationTime, totalEnergy, tra
 
 function MetricCard({ label, value, icon }: { label: string; value: string; icon: string }) {
   return (
-    <div className="bg-slate-700/50 rounded-xl p-3 text-center">
-      <div className="text-2xl mb-1">{icon}</div>
+    <div className="bg-background rounded-xl p-3 text-center border border-secondary/10">
+      <div className="text-xs text-secondary mb-1">{icon}</div>
       <motion.div
         key={value}
         initial={{ scale: 1.2 }}
         animate={{ scale: 1 }}
-        className="text-xl font-bold text-white"
+        className="text-xl font-bold text-text"
       >
         {value}
       </motion.div>
-      <div className="text-xs text-slate-400">{label}</div>
+      <div className="text-xs text-secondary">{label}</div>
     </div>
   );
 }

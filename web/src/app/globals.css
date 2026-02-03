@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
+  --background: #1A1C18;
+  --surface: #232621;
+  --primary: #8DB580;
+  --secondary: #A3AD9E;
+  --accent: #E3B04B;
+  --text: #E2E3DE;
+  --text-muted: #A3AD9E;
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text);
   background: var(--background);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -19,17 +24,17 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--surface);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: var(--secondary);
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--primary);
 }
 
 /* Smooth animations */
@@ -40,10 +45,10 @@ body {
 /* Glow effects */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(141, 181, 128, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 40px rgba(141, 181, 128, 0.5);
   }
 }
 
@@ -54,8 +59,8 @@ body {
 /* Background pattern */
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(141, 181, 128, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 181, 128, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 

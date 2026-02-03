@@ -26,23 +26,23 @@ export default function Home() {
 
   if (!state) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="text-center"
         >
-          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-slate-400">Initializing simulation...</p>
+          <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-secondary">Initializing simulation...</p>
         </motion.div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-grid-pattern">
+    <div className="min-h-screen bg-background bg-grid-pattern">
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-surface bg-background/90 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <motion.div
@@ -50,12 +50,12 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-3"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                <Radio className="w-7 h-7 text-white" />
+              <div className="w-12 h-12 bg-primary/20 border border-primary/30 rounded-xl flex items-center justify-center">
+                <Radio className="w-7 h-7 text-primary" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">5G NR RRC Simulator</h1>
-                <p className="text-sm text-slate-400">Interactive Learning Platform</p>
+                <h1 className="text-xl font-bold text-text">5G NR RRC Simulator</h1>
+                <p className="text-sm text-secondary">Interactive Learning Platform</p>
               </div>
             </motion.div>
             <motion.div
@@ -65,7 +65,7 @@ export default function Home() {
             >
               <Link
                 href="/study"
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 rounded-lg text-sm text-white transition-colors font-medium"
+                className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/80 rounded-lg text-sm text-background transition-colors font-medium"
               >
                 <BarChart3 className="w-4 h-4" />
                 Study Results
@@ -74,7 +74,7 @@ export default function Home() {
                 href="https://www.3gpp.org/specifications-technologies/releases-specifications/specifications-by-series"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm text-slate-300 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-surface hover:bg-surface/80 border border-secondary/20 rounded-lg text-sm text-secondary hover:text-text transition-colors"
               >
                 <BookOpen className="w-4 h-4" />
                 3GPP Specs
@@ -83,7 +83,7 @@ export default function Home() {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm text-slate-300 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-surface hover:bg-surface/80 border border-secondary/20 rounded-lg text-sm text-secondary hover:text-text transition-colors"
               >
                 <Github className="w-4 h-4" />
                 Source
@@ -157,12 +157,12 @@ export default function Home() {
         </motion.div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-slate-500 text-sm border-t border-slate-800 pt-8">
+        <footer className="mt-12 text-center text-secondary text-sm border-t border-surface pt-8">
           <p>
-            Built for educational purposes • Based on 3GPP TS 38.331 specifications
+            Built for educational purposes | Based on 3GPP TS 38.331 specifications
           </p>
           <p className="mt-2">
-            5G NR RRC State Machine Simulation • Python port of MATLAB Simulink model
+            5G NR RRC State Machine Simulation | Python port of MATLAB Simulink model
           </p>
         </footer>
       </main>

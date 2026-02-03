@@ -9,26 +9,26 @@ interface StateMachineDiagramProps {
 }
 
 const STATE_COLORS = {
-  [RRCState.IDLE]: { bg: '#ef4444', glow: '#fca5a5', text: 'white' },
-  [RRCState.CONNECTED]: { bg: '#22c55e', glow: '#86efac', text: 'white' },
-  [RRCState.INACTIVE]: { bg: '#eab308', glow: '#fde047', text: 'black' },
+  [RRCState.IDLE]: { bg: '#6B7280', glow: '#9CA3AF', text: 'white' },
+  [RRCState.CONNECTED]: { bg: '#8DB580', glow: '#A8C99B', text: '#1A1C18' },
+  [RRCState.INACTIVE]: { bg: '#E3B04B', glow: '#EBC978', text: '#1A1C18' },
 };
 
 const STATE_DESCRIPTIONS = {
-  [RRCState.IDLE]: 'Low power, no active connection. Device is in sleep mode.',
-  [RRCState.CONNECTED]: 'Active data transfer. Full power consumption.',
-  [RRCState.INACTIVE]: 'Intermediate power. Context retained for fast resume.',
+  [RRCState.IDLE]: 'Low power state with no active connection. Device is in deep sleep mode.',
+  [RRCState.CONNECTED]: 'Active data transfer state. Full power consumption for communication.',
+  [RRCState.INACTIVE]: 'Intermediate power state. UE context retained for fast connection resume.',
 };
 
 export function StateMachineDiagram({ currentState, transitionCount }: StateMachineDiagramProps) {
   return (
-    <div className="relative w-full h-[400px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-6 overflow-hidden">
+    <div className="relative w-full h-[400px] bg-surface rounded-2xl p-6 overflow-hidden border border-secondary/10">
       {/* Background grid */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8DB580" strokeWidth="0.5"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -36,10 +36,10 @@ export function StateMachineDiagram({ currentState, transitionCount }: StateMach
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-bold text-white mb-4 relative z-10">
+      <h3 className="text-xl font-semibold text-text mb-4 relative z-10">
         5G NR RRC State Machine
-        <span className="ml-2 text-sm font-normal text-slate-400">
-          (3GPP TS 38.331)
+        <span className="ml-2 text-sm font-normal text-secondary">
+          3GPP TS 38.331
         </span>
       </h3>
 
@@ -50,45 +50,45 @@ export function StateMachineDiagram({ currentState, transitionCount }: StateMach
         <motion.path
           d="M 100 100 Q 200 50 300 100"
           fill="none"
-          stroke={currentState === RRCState.CONNECTED && transitionCount > 0 ? '#22c55e' : '#475569'}
+          stroke={currentState === RRCState.CONNECTED && transitionCount > 0 ? '#8DB580' : '#A3AD9E'}
           strokeWidth="3"
           strokeDasharray="8 4"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 1 }}
         />
-        <text x="200" y="45" fill="#94a3b8" fontSize="10" textAnchor="middle">data_request / paging</text>
+        <text x="200" y="45" fill="#A3AD9E" fontSize="10" textAnchor="middle">data_request / paging</text>
         
         {/* CONNECTED to INACTIVE */}
         <motion.path
           d="M 340 140 L 340 200"
           fill="none"
-          stroke={currentState === RRCState.INACTIVE ? '#eab308' : '#475569'}
+          stroke={currentState === RRCState.INACTIVE ? '#E3B04B' : '#A3AD9E'}
           strokeWidth="3"
           strokeDasharray="8 4"
         />
-        <text x="400" y="175" fill="#94a3b8" fontSize="9" textAnchor="start">inactivity_timer</text>
-        <text x="400" y="188" fill="#94a3b8" fontSize="9" textAnchor="start">&gt; threshold</text>
+        <text x="400" y="175" fill="#A3AD9E" fontSize="9" textAnchor="start">inactivity_timer</text>
+        <text x="400" y="188" fill="#A3AD9E" fontSize="9" textAnchor="start">&gt; threshold</text>
 
         {/* INACTIVE to CONNECTED (Fast Resume) */}
         <motion.path
           d="M 300 200 Q 250 170 300 140"
           fill="none"
-          stroke={currentState === RRCState.CONNECTED ? '#22c55e' : '#475569'}
+          stroke={currentState === RRCState.CONNECTED ? '#8DB580' : '#A3AD9E'}
           strokeWidth="3"
           strokeDasharray="8 4"
         />
-        <text x="240" y="165" fill="#86efac" fontSize="9" textAnchor="end">fast resume</text>
+        <text x="240" y="165" fill="#8DB580" fontSize="9" textAnchor="end">fast resume</text>
 
         {/* INACTIVE to IDLE */}
         <motion.path
           d="M 260 220 Q 180 250 100 160"
           fill="none"
-          stroke={currentState === RRCState.IDLE ? '#ef4444' : '#475569'}
+          stroke={currentState === RRCState.IDLE ? '#6B7280' : '#A3AD9E'}
           strokeWidth="3"
           strokeDasharray="8 4"
         />
-        <text x="140" y="230" fill="#94a3b8" fontSize="9" textAnchor="middle">long_inactivity</text>
+        <text x="140" y="230" fill="#A3AD9E" fontSize="9" textAnchor="middle">long_inactivity</text>
 
         {/* State Nodes */}
         {/* IDLE Node */}
@@ -117,8 +117,8 @@ export function StateMachineDiagram({ currentState, transitionCount }: StateMach
               transition={{ repeat: Infinity, duration: 1.5 }}
             />
           )}
-          <text x="80" y="115" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">RRC</text>
-          <text x="80" y="130" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">IDLE</text>
+          <text x="80" y="115" fill="#E2E3DE" fontSize="12" fontWeight="bold" textAnchor="middle">RRC</text>
+          <text x="80" y="130" fill="#E2E3DE" fontSize="12" fontWeight="bold" textAnchor="middle">IDLE</text>
         </g>
 
         {/* CONNECTED Node */}
@@ -146,8 +146,8 @@ export function StateMachineDiagram({ currentState, transitionCount }: StateMach
               transition={{ repeat: Infinity, duration: 0.8 }}
             />
           )}
-          <text x="320" y="95" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">RRC</text>
-          <text x="320" y="110" fill="white" fontSize="12" fontWeight="bold" textAnchor="middle">CONNECTED</text>
+          <text x="320" y="95" fill="#1A1C18" fontSize="12" fontWeight="bold" textAnchor="middle">RRC</text>
+          <text x="320" y="110" fill="#1A1C18" fontSize="12" fontWeight="bold" textAnchor="middle">CONNECTED</text>
         </g>
 
         {/* INACTIVE Node */}
@@ -175,14 +175,14 @@ export function StateMachineDiagram({ currentState, transitionCount }: StateMach
               transition={{ repeat: Infinity, duration: 1.2 }}
             />
           )}
-          <text x="320" y="215" fill="black" fontSize="12" fontWeight="bold" textAnchor="middle">RRC</text>
-          <text x="320" y="230" fill="black" fontSize="12" fontWeight="bold" textAnchor="middle">INACTIVE</text>
+          <text x="320" y="215" fill="#1A1C18" fontSize="12" fontWeight="bold" textAnchor="middle">RRC</text>
+          <text x="320" y="230" fill="#1A1C18" fontSize="12" fontWeight="bold" textAnchor="middle">INACTIVE</text>
         </g>
 
         {/* Arrows */}
         <defs>
           <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            <polygon points="0 0, 10 3.5, 0 7" fill="#A3AD9E" />
           </marker>
         </defs>
       </svg>
@@ -194,10 +194,10 @@ export function StateMachineDiagram({ currentState, transitionCount }: StateMach
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-3"
+          className="absolute bottom-4 left-4 right-4 bg-background/80 backdrop-blur-sm rounded-lg p-3 border border-secondary/20"
         >
-          <p className="text-sm text-slate-300">
-            <span className="font-semibold" style={{ color: STATE_COLORS[currentState].glow }}>
+          <p className="text-sm text-text">
+            <span className="font-semibold" style={{ color: STATE_COLORS[currentState].bg }}>
               Current State:
             </span>{' '}
             {STATE_DESCRIPTIONS[currentState]}
